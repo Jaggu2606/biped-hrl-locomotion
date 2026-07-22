@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Hierarchical Reinforcement Learning for Obstacle-Aware Navigation of Underactuated Biped Robots. Project page by CAIR Lab.">
+  <link rel="icon" href="assets/images/images.png" type="image/png">
+  <title>Hierarchical Reinforcement Learning for Collision-Free Locomotion of an Underactuated Biped</title>
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ==========================================
+       NAVIGATION BAR
+       ========================================== -->
+  <nav>
+    <a href="#" class="brand">
+      <img src="assets/images/images.png" alt="CAIR Logo" class="brand-logo">
+      <span>Biped HRL Locomotion</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">Gallery</a>
+      <a href="#abstract">Abstract</a>
+      <a href="#pipeline">System Design</a>
+      <a href="#training">Training</a>
+      <a href="#results">Results</a>
+      <a href="#ablation">Ablation</a>
+      <a href="#demo">Video</a>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       HERO / HEADER SECTION
+       ========================================== -->
+  <header>
+    <div class="hero">
+      <!-- Project Icon/Logo -->
+      <img class="hero-logo" src="assets/images/images.png" alt="CAIR Logo">
+
+      <!-- Project Title -->
+      <h1>Hierarchical Reinforcement Learning for Collision-Free Locomotion of an Underactuated Biped</h1>
+
+      <!-- Author & Institution Block -->
+      <div class="author-block">
+        <p class="authors">Jagannath Prasad Sahoo, Saurabh Kumar, Surya Prakash S.K., Abhay Dwivedi, and Amit Shukla</p>
+        <p class="affiliation">Indian Institute of Technology Mandi, India</p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#abstract">Read Abstract</a>
+        <a class="btn btn-secondary" href="#" target="_blank">Code Repository</a>
+        <a class="btn btn-secondary" href="#" target="_blank">Dataset / Sim Env</a>
+        <a class="btn btn-secondary" href="#demo">Demo Video</a>
+      </div>
+
+      <div class="hero-note">Paper and Simulation Code will be fully released upon publication.</div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       GALLERY / SLIDESHOW (JS-FREE & NO PAGE JUMP)
+       ========================================== -->
+  <section id="about">
+    <h2>Project Gallery</h2>
+    <div class="carousel-wrapper">
+      <!-- Hidden Radio Buttons -->
+      <input type="radio" name="gallery-radio" id="slide-radio-1" checked style="display: none;">
+      <input type="radio" name="gallery-radio" id="slide-radio-2" style="display: none;">
+      <input type="radio" name="gallery-radio" id="slide-radio-3" style="display: none;">
+      <input type="radio" name="gallery-radio" id="slide-radio-4" style="display: none;">
+      <input type="radio" name="gallery-radio" id="slide-radio-5" style="display: none;">
+      <input type="radio" name="gallery-radio" id="slide-radio-6" style="display: none;">
+
+      <!-- Slide Wrapper -->
+      <div class="scroll-container-wrapper">
+        <div class="scroll-container-inner">
+
+          <!-- Slide 1 -->
+          <div class="scroll-slide-custom">
+            <img src="assets/images/gallery_1.jpg" alt="Underactuated biped navigating a cluttered environment">
+            <label for="slide-radio-6" class="arrow-btn prev-btn">‹</label>
+            <label for="slide-radio-2" class="arrow-btn next-btn">›</label>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="scroll-slide-custom">
+            <img src="assets/images/gallery_2.jpg" alt="Real-time obstacle avoidance and gait execution">
+            <label for="slide-radio-1" class="arrow-btn prev-btn">‹</label>
+            <label for="slide-radio-3" class="arrow-btn next-btn">›</label>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="scroll-slide-custom">
+            <img src="assets/images/training.jpg" alt="Training reward progression and balance preservation curves">
+            <label for="slide-radio-2" class="arrow-btn prev-btn">‹</label>
+            <label for="slide-radio-4" class="arrow-btn next-btn">›</label>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="scroll-slide-custom">
+            <img src="assets/images/results_1.jpg"
+              alt="Comparative results in static and dynamic navigation environments">
+            <label for="slide-radio-3" class="arrow-btn prev-btn">‹</label>
+            <label for="slide-radio-5" class="arrow-btn next-btn">›</label>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="scroll-slide-custom">
+            <img src="assets/images/results_2.jpg" alt="Path trajectory tracking accuracy benchmarks">
+            <label for="slide-radio-4" class="arrow-btn prev-btn">‹</label>
+            <label for="slide-radio-6" class="arrow-btn next-btn">›</label>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="scroll-slide-custom">
+            <img src="assets/images/ablation.jpg" alt="Ablation study of different sensing channels and rewards">
+            <label for="slide-radio-5" class="arrow-btn prev-btn">‹</label>
+            <label for="slide-radio-1" class="arrow-btn next-btn">›</label>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Indicator Dots -->
+      <div class="carousel-indicators-custom">
+        <label for="slide-radio-1" class="indicator-dot-custom" id="dot-1" title="Slide 1"></label>
+        <label for="slide-radio-2" class="indicator-dot-custom" id="dot-2" title="Slide 2"></label>
+        <label for="slide-radio-3" class="indicator-dot-custom" id="dot-3" title="Slide 3"></label>
+        <label for="slide-radio-4" class="indicator-dot-custom" id="dot-4" title="Slide 4"></label>
+        <label for="slide-radio-5" class="indicator-dot-custom" id="dot-5" title="Slide 5"></label>
+        <label for="slide-radio-6" class="indicator-dot-custom" id="dot-6" title="Slide 6"></label>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       ABSTRACT SECTION
+       ========================================== -->
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <div class="abstract-content">
+      <p>
+        Bipedal robots are underactuated systems in which balance and collision avoidance are tightly coupled, so
+        obstacle-aware walking is substantially harder than for wheeled platforms. We study a biped with only four
+        actuated joints per leg (hip yaw, hip pitch, knee pitch, ankle pitch). The absence of roll joints constrains
+        frontal-plane control and makes collision-free navigation a demanding test case. We present a hierarchical
+        reinforcement learning (HRL) framework in which a high-level (HL) navigation policy, trained with Soft
+        Actor–Critic (SAC), observes the robot pose, raycast proximity measurements, dynamic obstacle states, and a
+        receding-horizon local goal drawn from a global plan, and outputs a body-velocity command (vx, vy, ωyaw). A
+        velocity-conditioned low-level (LL) SAC gait policy executes each command for the next ten control steps through
+        joint-position targets tracked by PD controllers. The temporal abstraction separates navigation from gait
+        generation while keeping both learned and balance-aware. Because the LL gait is task-agnostic, we replace the
+        learned HL policy with classical planners over the identical command interface and obtain three controlled
+        hybrid baselines, SAC+A⋆, SAC+RRT⋆, and SAC+APF. In randomized simulated environments the proposed method
+        reaches the goal in 98.0% of static and 88.0% of dynamic trials, against at most 78.0% and 68.0% for the planner
+        hybrids, and an ablation study quantifies the contribution of each observation channel and reward component.
+      </p>
+    </div>
+  </section>
+
+  <section id="pipeline">
+    <h2>System Design Overview</h2>
+    <div style="max-width: var(--max-width-content); margin: 0 auto;">
+      <p style="margin-bottom: 24px; font-size: 1.05rem; text-align: center; color: var(--color-text-secondary);">
+        Our Hierarchical Reinforcement Learning (HRL) framework splits the control complexity into two distinct,
+        specialized policies connected by a simple command velocity interface:
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 24px;">
+        <div
+          style="background: var(--color-bg-primary); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--color-border); box-shadow: 0 4px 12px var(--color-shadow);">
+          <h3 style="margin-bottom: 12px; color: var(--color-primary); font-size: 1.2rem;">High-Level (HL) Navigation
+            Policy</h3>
+          <p>Trained via Soft Actor-Critic (SAC). It processes the robot pose, raycast lidar proximity measurements,
+            dynamic obstacle states, and a receding-horizon local goal, and outputs target body velocity commands (vx,
+            vy, ωyaw).</p>
+        </div>
+        <div
+          style="background: var(--color-bg-primary); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--color-border); box-shadow: 0 4px 12px var(--color-shadow);">
+          <h3 style="margin-bottom: 12px; color: var(--color-primary); font-size: 1.2rem;">Low-Level (LL) Gait Policy
+          </h3>
+          <p>A velocity-conditioned gait policy trained with SAC that executes high-level velocity commands over a
+            10-step horizon. It outputs target joint positions tracked by joint-level PD controllers, stabilizing the
+            underactuated biped's frontal-plane balance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TRAINING PARAMETERS SECTION
+       ========================================== -->
+  <section id="training">
+    <h2>Training Details & Balance Control</h2>
+    <div class="split-layout">
+      <!-- Visual Column (Left) -->
+      <div class="split-visual">
+        <img src="assets/images/training.jpg" alt="Training environments with dynamic obstacles">
+      </div>
+      <!-- Description Column (Right) -->
+      <div class="split-text">
+        <p>
+          Training is conducted in physically realistic environments with randomized obstacles. The biped features only
+          four actuated joints per leg, creating a severe control constraint in the frontal plane due to the absence of
+          roll joints.
+        </p>
+        <p>
+          By separating the navigation task from the gait generator, the LL gait policy learns task-agnostic balance
+          preservation and footprints. It can then be seamlessly paired with different high-level planning policies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <h2>Benchmark Results</h2>
+
+    <div class="split-layout">
+      <!-- Success Rate Table -->
+      <div class="split-text">
+        <p style="margin-bottom: 20px;">
+          The proposed HRL framework is compared against three hybrid baselines that swap out the learned HL policy with
+          classical planning algorithms (A*, RRT*, and Artificial Potential Fields) while utilizing the same learned LL
+          gait policy.
+        </p>
+
+        <div class="results-table-container">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Static Trials Success</th>
+                <th>Dynamic Trials Success</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td>Proposed HRL (SAC+SAC)</td>
+                <td>98.0%</td>
+                <td>88.0%</td>
+              </tr>
+              <tr>
+                <td>Hybrid SAC + A*</td>
+                <td>78.0%</td>
+                <td>68.0%</td>
+              </tr>
+              <tr>
+                <td>Hybrid SAC + RRT*</td>
+                <td>&le; 78.0%</td>
+                <td>&le; 68.0%</td>
+              </tr>
+              <tr>
+                <td>Hybrid SAC + APF</td>
+                <td>&le; 78.0%</td>
+                <td>&le; 68.0%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--color-text-secondary);">
+          <em>The proposed end-to-end HRL method significantly outperforms hybrid classical planners by coordinating
+            balance and navigation dynamically.</em>
+        </p>
+      </div>
+
+      <!-- Visual Column (Two Plots stacked) -->
+      <div class="split-visual" style="display: flex; flex-direction: column; gap: 15px;">
+        <img src="assets/images/results_1.jpg" alt="Locomotion benchmark comparisons">
+        <img src="assets/images/results_2.jpg" alt="Path trajectory tracking comparison">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       ABLATION STUDY SECTION
+       ========================================== -->
+  <section id="ablation">
+    <h2>Ablation Study</h2>
+    <div class="split-layout">
+      <!-- Visual Column (Left) -->
+      <div class="split-visual">
+        <img src="assets/images/ablation.jpg" alt="Ablation study graphs">
+      </div>
+      <!-- Description Column (Right) -->
+      <div class="split-text">
+        <p>
+          An extensive ablation study was conducted to evaluate the contribution of individual sensory inputs and reward
+          components:
+        </p>
+        <p>
+          <strong>Observation Channels:</strong> Removing raycast proximity sensors or dynamic obstacle state feeds
+          drastically decreases the success rates in cluttered dynamic environments.
+        </p>
+        <p>
+          <strong>Reward Shaping:</strong> The action-smoothness penalty and target tracking reward terms prevent joint
+          jerks and stabilize the underactuated biped's frontal-plane swing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       DEMO VIDEO SECTION
+       ========================================== -->
+  <section id="demo">
+    <h2>Demonstration Video</h2>
+    <div class="video-section-container">
+      <div class="video-container">
+        <!-- Path to video file (user can upload dynamic videos here later) -->
+        <video controls preload="metadata" poster="assets/images/gallery_1.jpg">
+          <source src="assets/videos/demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer>
+    <p>&copy; 2026 <a href="#">CAIR Lab</a>. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>
