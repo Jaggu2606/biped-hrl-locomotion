@@ -5,23 +5,23 @@ Project page for the paper by Jagannath Prasad Sahoo, Saurabh Kumar, Surya Praka
 ## Live site
 
 Once GitHub Pages is enabled (see below), the site will be live at:
-`https://<your-username>.github.io/<repo-name>/`
+`https://Jaggu2606.github.io/biped-hrl-locomotion/`
+
+(rename the repo if you'd prefer a different URL — just swap `biped-hrl-locomotion` below for whatever you pick)
 
 ## Deploying with GitHub Pages
 
-1. Create a new repository on GitHub (do not initialize it with a README).
+1. On GitHub, create a new repository named `biped-hrl-locomotion` under your account
+   (**do not** initialize it with a README, .gitignore, or license — this folder already
+   has its own git history).
 2. From this folder, run:
    ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: project page"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<repo-name>.git
+   git remote add origin https://github.com/Jaggu2606/biped-hrl-locomotion.git
    git push -u origin main
    ```
 3. On GitHub, go to **Settings → Pages**.
 4. Under "Build and deployment", set **Source** to `Deploy from a branch`, branch `main`, folder `/ (root)`.
-5. Save. The site will be live in a minute or two at the URL shown on that page.
+5. Save. The site will be live in a minute or two at `https://Jaggu2606.github.io/biped-hrl-locomotion/`.
 
 ## Structure
 
